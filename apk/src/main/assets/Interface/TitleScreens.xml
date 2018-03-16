@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nifty xmlns="http://nifty-gui.lessvoid.com/nifty-gui">
+  
+  <!-- +++++++++++++++++++++++++++++++++++++++ -->
+  <!-- load styles -->
+  <!-- +++++++++++++++++++++++++++++++++++++++ -->
+  <useStyles filename="nifty-default-styles.xml"/>
+  <useControls filename="nifty-default-controls.xml"/>
+  
+  <!-- +++++++++++++++++++++++++++++++++++++++ -->
+
+  <!-- intro screen -->
+
+  <!-- +++++++++++++++++++++++++++++++++++++++ -->
+  <screen id="start">
+    <layer childLayout="center">
+    </layer>
+  </screen>
+  
+  <!-- +++++++++++++++++++++++++++++++++++++++ -->
+  <!-- menu screen -->
+  <!-- +++++++++++++++++++++++++++++++++++++++ -->
+  <screen id="menu">
+    <layer childLayout="vertical">
+      <panel childLayout="vertical">
+        <control id="version" text="Version 38.28 (Steam)" />
+        <panel childLayout="horizontal">
+          <control id="exit" name="button" label="Exit">
+            <interact onClick="exit()" />
+          </control>
+          <control id="options" name="button" label="Options">
+            <interact onClick="options()" />
+          </control>
+          <control id="mods" name="button" label="Mods">
+            <interact onClick="mods()" />
+          </control>
+          <control id="workshop" id="exit" name="button" label="Workshop">
+            <interact onClick="workshop()" />
+          </control>
+          <panel id="solo" width="*" height="0px"/>
+          <control name="button" label="Solo">
+            <interact onClick="solo()" />
+          </control>
+          <control id="join" name="button" label="Join">
+            <interact onClick="join()" />
+          </control>
+          <control id="host" name="button" label="Host">
+            <interact onClick="host()" />
+          </control>
+        </panel>
+      </panel>
+    </layer>
+  </screen>
+
+</nifty>
