@@ -1,5 +1,5 @@
 # pZomb
-Project Zomboid: 3D Client
+Project Zomboid: JME3 Wrapper
 
 ## Introduction
 
