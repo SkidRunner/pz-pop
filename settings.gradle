@@ -1,1 +1,3 @@
-include ':apk'
+rootProject.name = 'PZ Pop!'
+include ':app'
+project(':app').name = 'PZ Pop! (Android)'

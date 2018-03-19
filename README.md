@@ -1,5 +1,6 @@
-# pZomb
-Project Zomboid: JME3 Wrapper
+# PZ Pop!
+Project Zomboid made cute
 
 ## Introduction
+
 

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:text="An Exception Occurred"/>
+
+	<View
+		android:background="?android:attr/dividerVertical"
+		android:layout_height="1dp"
+		android:layout_width="match_parent"/>
+
+	<GridLayout
+		columnCount="1"
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		rowCount="1"
+		android:columnCount="2">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:text="Class:"/>
+
+		<TextView
+			android:id="@+id/dialogErrorClass"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:text="Small Text"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:text="Message:"/>
+
+		<TextView
+			android:id="@+id/dialogErrorMessage"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:text="Small Text"/>
+
+	</GridLayout>
+
+	<ExpandableListView
+		android:id="@+id/dialogErrorExpandableListView"
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content" />
+		
+	<Button
+		android:id="@+id/dialogErrorButton"
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:layout_gravity="right"
+		android:text="Button"/>
+
+</LinearLayout>
+
