@@ -35,14 +35,19 @@ import java.util.logging.Logger;
 import com.jme3.app.LegacyApplication;
 import com.jme3.app.Application;
 import com.jme3.app.SimpleApplication;
+import android.util.DisplayMetrics;
+import android.support.design.widget.CoordinatorLayout;
+import android.os.Environment;
 
 public class MainActivity extends Activity implements TouchListener, DialogInterface.OnClickListener, SystemListener {
-
+	
+	protected final static String TAG = "PZ Pop!";
 	protected final static Logger logger = Logger.getLogger(MainActivity.class.getName());
+	
 	/**
 	 * The application class to start
 	 */
-	protected String appClass = "com.projectzomboid.pop.PZPop";
+	protected String appClass = PZPop.class.getName();
 	/**
 	 * The jme3 application object
 	 */
@@ -211,9 +216,19 @@ public class MainActivity extends Activity implements TouchListener, DialogInter
 			// Discover the screen reolution
 			//TODO try to find a better way to get a hand on the resolution
 			WindowManager wind = this.getWindowManager();
-			Display disp = wind.getDefaultDisplay();
-			Log.d("AndroidHarness", "Resolution from Window, width:" + disp.getWidth() + ", height: " + disp.getHeight());
-
+			Display display = wind.getDefaultDisplay();
+			
+			DisplayMetrics metrics = new DisplayMetrics();
+			display.getMetrics(metrics);
+			
+			Globals.getInstance().setDisplayWidth(metrics.widthPixels);
+			Globals.getInstance().setDisplayHeight(metrics.heightPixels);
+			Globals.getInstance().setDensityX(metrics.xdpi);
+			Globals.getInstance().setDensityY(metrics.ydpi);
+			
+			Log.d(TAG, "Resolution from Window, width:" + display.getWidth() + ", height: " + display.getHeight());
+			Log.d(TAG, "Density from Display, xdpi:" + metrics.xdpi + ", ydpi: " + metrics.ydpi);
+			
 			// Create Settings
 			logger.log(Level.FINE, "Creating settings");
 			AppSettings settings = new AppSettings(true);
@@ -228,7 +243,7 @@ public class MainActivity extends Activity implements TouchListener, DialogInter
 			settings.setSamples(eglSamples);
 			settings.setStencilBits(eglStencilBits);
 
-			settings.setResolution(disp.getWidth(), disp.getHeight());
+			settings.setResolution(display.getWidth(), display.getHeight());
 			settings.setAudioRenderer(audioRendererType);
 
 			settings.setFrameRate(frameRate);
@@ -572,5 +587,22 @@ public class MainActivity extends Activity implements TouchListener, DialogInter
 			}
 		}
 		isGLThreadPaused = true;
+	}
+	
+	public boolean isExternalStorageWritable() {
+		String state = Environment.getExternalStorageState();
+		if (Environment.MEDIA_MOUNTED.equals(state)) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isExternalStorageReadable() {
+		String state = Environment.getExternalStorageState();
+		if (Environment.MEDIA_MOUNTED.equals(state) ||
+			Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
+			return true;
+		}
+		return false;
 	}
 }

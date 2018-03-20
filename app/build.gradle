@@ -20,12 +20,14 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+	 compile fileTree(dir: 'libs', include: ['*.jar'])
 	
 	compile 'com.android.support:design:+'
 	compile 'com.android.support:support-v4:+'
 	compile 'com.android.support:appcompat-v7:+'
 	
+	compile 'com.android.support:cardview-v7:+'
+   
 	compile 'org.jmonkeyengine:jme3-core:3.2.0-stable'
 	compile 'org.jmonkeyengine:jme3-effects:3.2.0-stable'
 	compile 'org.jmonkeyengine:jme3-jogg:3.2.0-stable'
