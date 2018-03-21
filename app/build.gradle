@@ -3,13 +3,13 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
     buildToolsVersion "27.1.0"
-
     defaultConfig {
         applicationId "com.projectzomboid.pop"
         minSdkVersion 14
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -20,24 +20,24 @@ android {
 }
 
 dependencies {
-	 compile fileTree(dir: 'libs', include: ['*.jar'])
-	
-	compile 'com.android.support:design:+'
-	compile 'com.android.support:support-v4:+'
-	compile 'com.android.support:appcompat-v7:+'
-	
-	compile 'com.android.support:cardview-v7:+'
-   
-	compile 'org.jmonkeyengine:jme3-core:3.2.0-stable'
-	compile 'org.jmonkeyengine:jme3-effects:3.2.0-stable'
-	compile 'org.jmonkeyengine:jme3-jogg:3.2.0-stable'
-	compile 'org.jmonkeyengine:jme3-networking:3.2.0-stable'
-	compile 'org.jmonkeyengine:jme3-niftygui:3.2.0-stable'
-	compile 'org.jmonkeyengine:jme3-plugins:3.2.0-stable'
-	compile 'org.jmonkeyengine:jme3-terrain:3.2.0-stable'
-	compile 'org.jmonkeyengine:jme3-bullet:3.2.0-stable'
-	
-	compile 'org.jmonkeyengine:jme3-android:3.2.0-stable'
-	compile 'org.jmonkeyengine:jme3-android-native:3.2.0-stable'
-	compile 'org.jmonkeyengine:jme3-bullet-native-android:3.2.0-stable'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    implementation 'org.jmonkeyengine:jme3-core:3.2.0-stable'
+    implementation 'org.jmonkeyengine:jme3-effects:3.2.0-stable'
+    implementation 'org.jmonkeyengine:jme3-jogg:3.2.0-stable'
+    implementation 'org.jmonkeyengine:jme3-networking:3.2.0-stable'
+    implementation 'org.jmonkeyengine:jme3-niftygui:3.2.0-stable'
+    implementation 'org.jmonkeyengine:jme3-plugins:3.2.0-stable'
+    implementation 'org.jmonkeyengine:jme3-terrain:3.2.0-stable'
+    implementation 'org.jmonkeyengine:jme3-bullet:3.2.0-stable'
+
+    implementation 'org.jmonkeyengine:jme3-android:3.2.0-stable'
+    implementation 'org.jmonkeyengine:jme3-android-native:3.2.0-stable'
+    implementation 'org.jmonkeyengine:jme3-bullet-native-android:3.2.0-stable'
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 }
